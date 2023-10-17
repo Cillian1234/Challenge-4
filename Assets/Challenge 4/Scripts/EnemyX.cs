@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemyX : MonoBehaviour
 {
-    public float speed;
     private Rigidbody enemyRb;
     private GameObject playerGoal;
+
+    public float speed;
 
     // Start is called before the first frame update
     void Start()

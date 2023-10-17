@@ -5,15 +5,15 @@ using UnityEngine;
 public class PlayerControllerX : MonoBehaviour
 {
     private Rigidbody playerRb;
-    private float speed = 500;
     private GameObject focalPoint;
+    public ParticleSystem boostParticle;
+    public GameObject powerupIndicator;
 
     public float boost;
-    public ParticleSystem boostParticle;
     public bool hasPowerup;
-    public GameObject powerupIndicator;
     public int powerUpDuration = 5;
 
+    private float speed = 500;
     private float normalStrength = 10; // how hard to hit enemy without powerup
     private float powerupStrength = 25; // how hard to hit enemy with powerup
     
@@ -31,9 +31,10 @@ public class PlayerControllerX : MonoBehaviour
 
         // Set powerup indicator position to beneath player
         powerupIndicator.transform.position = transform.position + new Vector3(0, -0.6f, 0);
-
+        // make boost particle effect follow players "feet"
         boostParticle.transform.position = new Vector3(transform.position.x, -0.5f, transform.position.z);
 
+        // if the player presses the spacebar, add forwards force in the direction they are looking and play boost particles
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Vector3 lookDirection = (focalPoint.transform.position - transform.position);

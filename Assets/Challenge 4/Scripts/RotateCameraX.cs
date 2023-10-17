@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class RotateCameraX : MonoBehaviour
 {
-    private float speed = 200;
     public GameObject player;
+
+    private float speed = 200;
 
     // Update is called once per frame
     void Update()
